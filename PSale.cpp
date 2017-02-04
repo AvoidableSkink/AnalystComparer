@@ -2,10 +2,10 @@
 // Created by klind on 2/4/2017.
 //
 
-#include "pSale.h"
+#include "PSale.h"
 #include "Utils.h"
 
-pSale::pSale(std::ifstream inputStream){
+PSale::PSale(std::ifstream inputStream){
     //get the first line from the inputStream and put it in a string variable
     std::string data;
     std::getline(inputStream, data);
@@ -26,27 +26,27 @@ pSale::pSale(std::ifstream inputStream){
 }
 
 //return symbol
-std::string pSale::getSymbol() {
+std::string PSale::getSymbol() {
     return symbol;
 }
 
 //return purchaseDateTime
-int pSale::getPurchaseDateTime(){
+int PSale::getPurchaseDateTime(){
     return purchaseDateTime;
 }
 
 //return saleDateTime
-int pSale::getSaleDateTime(){
+int PSale::getSaleDateTime(){
     return saleDateTime;
 }
 
 //calculate and return the investment amount
-int pSale::computeInvestmentAmount(){
+int PSale::computeInvestmentAmount(){
     return quantity*purhcasePrice + purhcaseFee + saleFee;
 }
 
 //calculate and return the profit loss
-int pSale::computeProfitLoss(){
+int PSale::computeProfitLoss(){
     int tmp = quantity*salePrice - computeInvestmentAmount();
     return tmp;
 }

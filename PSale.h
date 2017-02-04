@@ -7,7 +7,7 @@
 
 #include <string>
 
-class pSale {
+class PSale {
 private:
     std::string symbol;
     int quantity;
@@ -19,7 +19,7 @@ private:
     int saleFee;
 public:
     //functions i may use
-    pSale(std::ifstream);
+    PSale(std::ifstream);
     std::string getSymbol();
     int getPurchaseDateTime();
     int getSaleDateTime();

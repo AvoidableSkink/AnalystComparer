@@ -7,17 +7,16 @@
 
 
 #include <vector>
-#include "pSale.h"
+#include "PSale.h"
 
 class History {
 private:
-    int simullationDays;
-    int seedMoney
-    std::vector<pSale> pSales;
+    int simulationDays;
+    int seedMoney;
     int pSaleCount;
+    std::vector<PSale> pSales;
     int currentPSale;
 public:
-
 };
 
 
