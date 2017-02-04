@@ -5,9 +5,30 @@
 #ifndef ANALYSTCOMPARER_PSALE_H
 #define ANALYSTCOMPARER_PSALE_H
 
+#include <string>
 
 class pSale {
+private:
+    std::string symbol;
+    int quantity;
+    int purchaseDateTime;
+    int purhcasePrice;
+    int purhcaseFee;
+    int saleDateTime;
+    int salePrice;
+    int saleFee;
 
+    //my data members
+    int profitLoss;
+    int investmentAmount;
+public:
+    //functions i may use
+    pSale(std::ifstream);
+    std::string getSymbol();
+    int getPurchaseDateTime();
+    int getSaleDateTime();
+    int computeInvestmentAmount();
+    int computeProfitLoss();
 };
 
 

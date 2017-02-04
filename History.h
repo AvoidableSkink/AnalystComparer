@@ -6,7 +6,17 @@
 #define ANALYSTCOMPARER_HISTORY_H
 
 
+#include <vector>
+#include "pSale.h"
+
 class History {
+private:
+    int simullationDays;
+    int seedMoney
+    std::vector<pSale> pSales;
+    int pSaleCount;
+    int currentPSale;
+public:
 
 };
 
