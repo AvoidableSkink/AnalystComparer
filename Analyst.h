@@ -14,7 +14,11 @@ private:
     std::string initials;
     History history;
 public:
-
+    void load(std::ifstream);
+    float getStockPerformance(std::string symbol);
+    std::string getName();
+    std::string getInitials();
+    History getHistory();
 };
 
 
