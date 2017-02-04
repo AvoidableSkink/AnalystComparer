@@ -17,10 +17,6 @@ private:
     int saleDateTime;
     int salePrice;
     int saleFee;
-
-    //my data members
-    int profitLoss;
-    int investmentAmount;
 public:
     //functions i may use
     pSale(std::ifstream);
