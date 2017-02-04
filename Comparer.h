@@ -10,14 +10,11 @@
 #include "Constants.h"
 #include "Analyst.h"
 
-// TODO: Define an Analyst class and import the definition
-// #include "Analyst.h"
+#include "Analyst.h"
 
 class Comparer {
 private:
     std::string     m_outputFilename;
-    //done TODO: define something like an array of pointers to hold a list of analysts. A vector<Analyst> would work too.
-    // Analyst**       m_analysts = nullptr;
     std::vector<Analyst> analysts;
     int             m_analystCount = 0;
     std::string     m_symbols[MAX_SYMBOLS];
