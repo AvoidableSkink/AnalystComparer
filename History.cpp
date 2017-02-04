@@ -3,3 +3,11 @@
 //
 
 #include "History.h"
+
+int load(std::ifstream);
+int getSimulationDays;
+int getInitialMoney();
+int computeProfitLossPerDay();
+//maybe I'll use these???
+void resetIteration();
+PSale nextPurchaseSale();

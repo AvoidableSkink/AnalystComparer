@@ -17,6 +17,13 @@ private:
     std::vector<PSale> pSales;
     int currentPSale;
 public:
+    int load(std::ifstream);
+    int getSimulationDays;
+    int getInitialMoney();
+    int computeProfitLossPerDay();
+    //maybe I'll use these???
+    void resetIteration();
+    PSale nextPurchaseSale();
 };
 
 
