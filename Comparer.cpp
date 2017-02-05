@@ -117,8 +117,8 @@ void Comparer::outputOverallPerformance(std::ofstream& outputStream) const
     outputStream << "\nOverall Performance:\n";
     analysts[0].getHistory().getSimulationDays();
     analysts[0].getHistory().getInitialMoney();
+    analysts[0].getHistory().computeTotalProfitLoss();
     analysts[0].getHistory().computeProfitLossPerDay();
-    analysts[0].getHistory().getSimulationDays();
 
 };
 
@@ -126,4 +126,5 @@ void Comparer::outputOverallPerformance(std::ofstream& outputStream) const
 void Comparer::outputStockPerformance(std::ofstream& outputStream) const
 {
     // TODO: Write out Stock Performance table.  The classes from the FormattedTable example might be helpful.
+
 }

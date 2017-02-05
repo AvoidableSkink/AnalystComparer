@@ -1,5 +1,5 @@
 //
-// Created by klind on 2/4/2017.
+// Created by klind on 2/1/2017.
 //
 
 #include <fstream>
@@ -15,7 +15,7 @@ void Analyst::load(std::ifstream& inputStream){
 }
 
 float Analyst::getStockPerformance(std::string symbol){
-
+    history.
 }
 
 std::string Analyst::getName() const{
