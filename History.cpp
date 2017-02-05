@@ -39,9 +39,18 @@ std::string History::getCurrentSymbol(){
     return pSales[currentPSale].getSymbol();
 }
 
+int History::computeTotalProfitLoss(){
+    int tpl = 0;
+    for (int i = 0; i < pSaleCount; ++i) {
+        tpl += pSales[i].computeProfitLoss();
+    }
+    return tpl;
+}
+
 //compute and return the profit loss per day
 int History::computeProfitLossPerDay(){
-
+    int plpd = computeProfitLossPerDay()/simulationDays;
+    return plpd;
 }
 
 void History::resetIteration(){

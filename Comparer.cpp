@@ -6,8 +6,8 @@
 #include <fstream>
 #include <iomanip>
 #include <algorithm>
+//#include "FormattedTable.h"
 #include "Comparer.h"
-#include "Utils.h"
 
 int Comparer::load(int argc, char* argv[])
 {
@@ -33,6 +33,7 @@ int Comparer::load(int argc, char* argv[])
         Analyst tmp;
         tmp.load(inputStream);
         analysts.push_back(tmp);
+        analystIndex++;
         // TODO: Create a new analyst, load it from the input stream, and put it into the container if that load succeeded
         //
         // Example code:
@@ -71,7 +72,7 @@ int Comparer::compare() const
     std::ofstream outputStream(m_outputFilename);
     outputInvestorNames(outputStream);
     outputOverallPerformance(outputStream);
-    outputStockPerformance(outputStream);
+//    outputStockPerformance(outputStream);
 
     return 0;
 }
@@ -82,28 +83,46 @@ void Comparer::loadSymbols()
     for (int i = 0; i < m_analystCount; ++i) {
         History history = analysts[i].getHistory();
         history.resetIteration();
-        while (i < history.getPSaleCount())
+
+        int count = 0;
+        while (count < history.getPSaleCount())
         {
             std::string symbol = history.getCurrentSymbol();
             std::string *existingSymbol = std::find(std::begin(m_symbols), std::end(m_symbols), symbol);
             if (existingSymbol == std::end(m_symbols)) {
                 m_symbols[m_symbolsCount++] = symbol;
             }
+            count++;
+            history.nextPurchaseSale();
         }
     }
 }
 
-
+//output investor names
 void Comparer::outputInvestorNames(std::ofstream& outputStream) const
 {
+    outputStream << "Analyst Comparison\n" << "===========================\n\n" << "Investors: \n";
     // TODO: Write out investor names
+    for (int i = 0; i < m_analystCount; ++i) {
+        std::string init = analysts[i].getInitials();
+        std::string name = analysts[i].getName();
+        outputStream << init << " " << name << "\n";
+    }
 }
 
+//output overall performance
 void Comparer::outputOverallPerformance(std::ofstream& outputStream) const
 {
     // TODO: Write out Overall Performance table.  The classes from the FormattedTable example might be helpful.
+    outputStream << "\nOverall Performance:\n";
+    analysts[0].getHistory().getSimulationDays();
+    analysts[0].getHistory().getInitialMoney();
+    analysts[0].getHistory().computeProfitLossPerDay();
+    analysts[0].getHistory().getSimulationDays();
+
 };
 
+//output stock performance
 void Comparer::outputStockPerformance(std::ofstream& outputStream) const
 {
     // TODO: Write out Stock Performance table.  The classes from the FormattedTable example might be helpful.

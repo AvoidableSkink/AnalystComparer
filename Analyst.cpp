@@ -18,11 +18,11 @@ float Analyst::getStockPerformance(std::string symbol){
 
 }
 
-std::string Analyst::getName(){
+std::string Analyst::getName() const{
     return name;
 }
 
-std::string Analyst::getInitials(){
+std::string Analyst::getInitials() const{
     return initials;
 }
 

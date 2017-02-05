@@ -21,6 +21,7 @@ public:
     int getSimulationDays();
     int getInitialMoney();
     int computeProfitLossPerDay();
+    int computeTotalProfitLoss();
     int getPSaleCount();
     std::string getCurrentSymbol();
     void resetIteration();

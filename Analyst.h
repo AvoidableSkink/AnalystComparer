@@ -16,8 +16,8 @@ private:
 public:
     void load(std::ifstream&);
     float getStockPerformance(std::string symbol);
-    std::string getName();
-    std::string getInitials();
+    std::string getName() const;
+    std::string getInitials() const;
     History getHistory();
 };
 
