@@ -5,7 +5,7 @@
 #include <fstream>
 #include "Analyst.h"
 
-void Analyst::load(std::ifstream inputStream){
+void Analyst::load(std::ifstream& inputStream){
     std::string tmp;
     std::getline(inputStream, tmp);
     name = tmp;

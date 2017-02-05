@@ -6,7 +6,7 @@
 #include "History.h"
 
 //Load the history data from the given ifstream
-int History::load(std::ifstream inputStream){
+int History::load(std::ifstream& inputStream){
     std::string tmp;
     std::getline(inputStream, tmp);
     simulationDays = atoi(tmp.c_str());
@@ -16,7 +16,7 @@ int History::load(std::ifstream inputStream){
     pSaleCount = atoi(tmp.c_str());
 
     for (int i = 0; i < pSaleCount; ++i) {
-        PSale tmp = new PSale(inputStream);
+        PSale tmp = PSale(inputStream);
         pSales.push_back(tmp);
     }
 }
@@ -31,11 +31,23 @@ int History::getInitialMoney(){
     return seedMoney;
 }
 
+int History::getPSaleCount(){
+    return pSaleCount;
+}
+
+std::string History::getCurrentSymbol(){
+    return pSales[currentPSale].getSymbol();
+}
+
 //compute and return the profit loss per day
 int History::computeProfitLossPerDay(){
 
 }
 
-//maybe I'll use these???
-void resetIteration();
-PSale nextPurchaseSale();
+void History::resetIteration(){
+    currentPSale = 0;
+}
+
+PSale History::nextPurchaseSale(){
+    currentPSale++;
+}

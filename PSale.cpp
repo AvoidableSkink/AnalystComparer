@@ -5,7 +5,7 @@
 #include "PSale.h"
 #include "Utils.h"
 
-PSale::PSale(std::ifstream inputStream){
+PSale::PSale(std::ifstream& inputStream){
     //get the first line from the inputStream and put it in a string variable
     std::string data;
     std::getline(inputStream, data);

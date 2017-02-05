@@ -10,8 +10,6 @@
 #include "Constants.h"
 #include "Analyst.h"
 
-#include "Analyst.h"
-
 class Comparer {
 private:
     std::string     m_outputFilename;

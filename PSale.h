@@ -19,7 +19,7 @@ private:
     int saleFee;
 public:
     //functions i may use
-    PSale(std::ifstream);
+    PSale(std::ifstream&);
     std::string getSymbol();
     int getPurchaseDateTime();
     int getSaleDateTime();

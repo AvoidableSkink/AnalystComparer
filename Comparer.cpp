@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 #include "Comparer.h"
 #include "Utils.h"
 
@@ -29,6 +30,9 @@ int Comparer::load(int argc, char* argv[])
     {
         std::ifstream inputStream(argv[2 + analystIndex]);
 
+        Analyst tmp;
+        tmp.load(inputStream);
+        analysts.push_back(tmp);
         // TODO: Create a new analyst, load it from the input stream, and put it into the container if that load succeeded
         //
         // Example code:
@@ -98,6 +102,18 @@ void Comparer::loadSymbols()
     //        }
     //    }
     // }
+    for (int i = 0; i < m_analystCount; ++i) {
+        History history = analysts[i].getHistory();
+        history.resetIteration();
+        while (i < history.getPSaleCount())
+        {
+            std::string symbol = history.getCurrentSymbol();
+            std::string *existingSymbol = std::find(std::begin(m_symbols), std::end(m_symbols), symbol);
+            if (existingSymbol == std::end(m_symbols)) {
+                m_symbols[m_symbolsCount++] = symbol;
+            }
+        }
+    }
 }
 
 
