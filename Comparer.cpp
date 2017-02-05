@@ -79,29 +79,6 @@ int Comparer::compare() const
 void Comparer::loadSymbols()
 {
     m_symbolsCount = 0;
-    // TODO: Go through all analysts' histories and build a list of symbols used in any Purchase-Sale.
-    // According to the design, every analyst has a design and a history contains purchase-sale objects.
-    // Each purchase-sale object is for a symbol.
-    //
-    // The m_symbols array contains the list of references symbols.  The std::find methods checks to see
-    // if a symbol is already in that array.  If it is not, then the result result is the std::end of the
-    // the array and the symbol is array to the array.
-    //
-    // Example code:
-    // for (int i = 0; i < m_analystCount; i++)
-    // {
-    //    History& history = m_analysts[i]->getHistory();
-    //    history.resetIterator();
-    //    const PurchaseSale* purchaseSale;
-    //    while ((purchaseSale = history.nextPurchaseSale()) != nullptr)
-    //    {
-    //        std::string symbol = purchaseSale->getSymbol();
-    //        std::string *existingSymbol = std::find(std::begin(m_symbols), std::end(m_symbols), symbol);
-    //        if (existingSymbol == std::end(m_symbols)) {
-    //            m_symbols[m_symbolsCount++] = symbol;
-    //        }
-    //    }
-    // }
     for (int i = 0; i < m_analystCount; ++i) {
         History history = analysts[i].getHistory();
         history.resetIteration();
